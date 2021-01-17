@@ -5,13 +5,18 @@ import useStyles from './styles'
 import Form from './Form/Form';
 import List from './List/List';
 import InfoCard from '../InfoCard';
+import {motion} from 'framer-motion';
 
 const Main = () => {
     const classes= useStyles();
     const {balance} = useContext(ExpenseTrackerContext);
 
     return (
-        <div>
+
+        <motion.div
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        transition={{delay:1.5, duration:1.5}}>
          <Card className={classes.root}>
             <CardHeader title="Expense Tracker" subheader="Powered by Speechly" />     
              <CardContent>
@@ -31,7 +36,7 @@ const Main = () => {
             </CardContent>
         </Card>   
             
-        </div>
+        </motion.div>
     )
 }
 
